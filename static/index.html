@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Substitution Cipher Game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Substitution Cipher Game</h1>
+        <div class="text-section"></div>
+        <div class="button-container">
+            <button onclick="fetchNewCipherText()" class="button">New</button>
+            <button onclick="clearAllAssignments()" class="button">Clear All</button>
+            <button onclick="checkSolution()" class="button">Check Solution</button>
+        </div>
+        <div id="result-banner" class="hidden">Some Text Here</div>
+        <div class="letter-pairing-section">
+            <!-- Example Letter Pairing for A -->
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">A</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="A">
+                </div>
+            </div>
+            <!-- Repeat the structure above for other letters, B, C, etc... -->
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">B</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="B">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">C</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="C">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">D</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="D">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">E</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="E">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">F</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="F">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">G</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="G">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">H</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="H">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">I</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="I">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">J</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="J">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">K</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="K">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">L</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="L">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">M</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="M">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">N</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="N">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">O</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="O">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">P</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="P">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">Q</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="Q">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">R</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="R">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">S</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="S">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">T</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="T">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">U</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="U">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">V</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="V">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">W</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="W">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">X</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="X">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">Y</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="Y">
+                </div>
+            </div>
+            <div class="col-xs-4 input-box-container">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default letter-button" type="button">Z</button>
+                    </span>
+                    <input type="text" class="form-control input-box" maxlength="1" data-cipher-letter="Z"></div>
+            </div>
+        </div>
+        <div id="messages"></div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
